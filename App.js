@@ -1,21 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
+import HomePage from './src';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Detalhes } from './src/componentes/detalhes';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <SafeAreaView style={styles.home}>
+        <Stack.Navigator initialRouteName="HomePage">
+          <Stack.Screen
+            name="HomePage"
+            component={HomePage}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="DetalhesPokemon"
+            component={Detalhes}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </SafeAreaView>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  home: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    backgroundColor: "#F4F0F4",
+  }
+})
+
+
