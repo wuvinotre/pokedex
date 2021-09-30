@@ -3,11 +3,13 @@ import { SafeAreaView, StyleSheet } from 'react-native';
 import HomePage from './src';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Detalhes } from './src/componentes/detalhes';
+import { DetalhesPokemon } from './src/componentes/detalhes';
+import { LogBox } from 'react-native';
 
 const Stack = createStackNavigator();
 
 export default function App() {
+  LogBox.ignoreAllLogs();
   return (
     <NavigationContainer>
       <SafeAreaView style={styles.home}>
@@ -19,7 +21,7 @@ export default function App() {
           />
           <Stack.Screen
             name="DetalhesPokemon"
-            component={Detalhes}
+            component={DetalhesPokemon}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

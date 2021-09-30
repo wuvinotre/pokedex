@@ -1,11 +1,27 @@
 import React from "react";
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+import {Background} from "./fundo";
+import {DescricaoItem} from "./descricaoItem";
 
-export const Detalhes = () => {
-
+export const DetalhesPokemon = ({ route }) => {
+    const { imagem, titulo, itemDesc, evolucao, id, estudio, numero } = route.params;
     return (
-        <View>
-            <Text>Detalhes produtos</Text>
+        <View style={styles.container}>
+            <Background/>
+            <DescricaoItem
+                imagem={imagem}
+                titulo={titulo}
+                itemDesc={itemDesc}
+                evolucao={evolucao}
+                id={id}
+                numero={numero}
+                estudio={estudio}/>
         </View>
     )
-}
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+})

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
-import pokebolaImagem from '../assets/icons/pokebola.jpg'
+import {PokebolaSacola} from "../componentes/pokebolaSacola";
 
 export default function Cabecalho() {
     return (
@@ -9,14 +9,9 @@ export default function Cabecalho() {
                 <Text style={styles.titulo}>
                     Pokémons
                 </Text>
-                <View style={styles.pokebola}>
-                    <Image
-                        source={pokebolaImagem}
-                        style={styles.imagem}
-                    />
-                </View>
+                <PokebolaSacola/>
             </View>
-            <View style={styles.ContainerDescricao}>
+            <View >
                 <View style={styles.separador} />
                 <View style={styles.containerTexto}>
                     <Text style={styles.textoDescricao}>Pokémons Iniciais</Text>
@@ -43,14 +38,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
 
     },
-    imagem: {
-        height: 35,
-        width: 35,
-    },
-    pokebola: {
-        padding: 18,
 
-    },
     ContainerDescricao: {
         paddingHorizontal: 24,
     },

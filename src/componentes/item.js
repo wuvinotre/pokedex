@@ -1,16 +1,24 @@
-import { useNavigation } from "@react-navigation/core";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Text, Image, StyleSheet, View } from 'react-native';
-import { TouchableHighlight } from "react-native-gesture-handler";
+import { Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-export const Item = ({ imagem, titulo }) => {
+export const Item = ({ imagem, titulo, estudio, itemDesc, evolucao, id, numero }) => {
     const navigation = useNavigation();
+
     return (
 
-        <View style={styles.containerItem} >
+        <TouchableOpacity style={styles.containerItem} onPress={() => navigation.push('DetalhesPokemon',{
+            imagem,
+            itemDesc,
+            estudio,
+            titulo,
+            evolucao,
+            id,
+            numero,
+        })}>
             <Image source={imagem} style={styles.imagem} resizeMode="contain" />
             <Text style={styles.texto}>{titulo}</Text>
-        </View>
+        </TouchableOpacity>
 
     )
 }
