@@ -8,7 +8,7 @@ export const PokebolaSacola = () => {
     const navigation = useNavigation();
 
     return (
-        <TouchableOpacity onPressIn={() => navigation.push('Checkout')}>
+        <TouchableOpacity>
             <View style={styles.pokebola}>
                 <Image
                     source={pokebolaImagem}

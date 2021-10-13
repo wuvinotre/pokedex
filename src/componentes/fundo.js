@@ -1,5 +1,5 @@
 import React from "react";
-import {Image, View, StyleSheet, Dimensions, ImageBackground} from "react-native";
+import {Image, View, StyleSheet, Dimensions, ImageBackground, TouchableOpacity} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import {PokebolaSacola} from "./pokebolaSacola";
 
@@ -15,16 +15,14 @@ export const Background = () => {
                 resizeMode="cover"
                 source={imSrc}
                 style={styles.imagemFundo}>
+                <TouchableOpacity onPressIn={() => navigation.push('HomePage')}>
                     <View style={styles.headerContainer}>
                         <Image source={require('../assets/icons/flecha.png')}
                         style={styles.imagemSeta}/>
-
-                <View style={styles.containerSacola}>
-                <PokebolaSacola/>
-                </View>
                     </View>
+                </TouchableOpacity>
             </ImageBackground>
-        </View>
+</View>
     );
 };
 
